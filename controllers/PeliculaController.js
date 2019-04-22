@@ -59,7 +59,9 @@ let updatePeliculaNewComment = (nombre,puntaje) =>
 {
     let id = { nombre : nombre};
     let newPromedio = {promedio: promedio};
+    newPromedio = newPromedio + puntaje;    
     let CantidadVotos = {cantidadVotos: cantidadVotos};
+    CantidadVotos = CantidadVotos+1;
     console.log(id);
     console.log(newPromedio);
     console.log(newCantidadVotos);
