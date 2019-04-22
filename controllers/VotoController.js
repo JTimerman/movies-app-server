@@ -29,7 +29,7 @@ let insertVoto = (req,res) =>
 
 let getVotosEquipo = (equipo)=>
 {
-    let idBusqueda = {nombreEquipo : equipo};
+    let idBusqueda = {idPelicula : equipo};
     //Listar resultados
     votos.find(idBusqueda)
     .then

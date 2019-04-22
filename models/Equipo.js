@@ -9,6 +9,6 @@ var equipoSchema = new Schema({
     
 });
 
-var Equipos = mongoose.model('Equipo', equipoSchema);
+var Equipos = mongoose.model('Equipos', equipoSchema);
 console.log("se creo modelo");
 module.exports = Equipos;
