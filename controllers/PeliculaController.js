@@ -1,37 +1,37 @@
-var equipos = require('../models/Equipo');
+var peliculas = require('../models/Pelicula');
 var bodyParser = require('body-parser');
 
     
-let getEquipos = (req, res) =>
+let getPeliculas = (req, res) =>
 {      
     console.log("llegue a leer");
     //Listar resultados
-    equipos.find()
+    peliculas.find()
     .then
     (
-        (listaEquipos)=>
+        (listaPeliculas)=>
         {
-            res.send(listaEquipos); //devuelvo resultado query   
+            res.send(listaPeliculas); //devuelvo resultado query   
             //console.log(listaContactos);    
         },
         (err)=>{console.log(err);}
     )       
 };
 
-let getEquipoById = (req, res) =>
+let getPeliculaById = (req, res) =>
 {      
     console.log("llegue a leer con filtro");
     //Obtener id busqueda
-    let idBusqueda = {nombre: req.body.equipoBuscado};
+    let idBusqueda = {nombre: req.body.peliculaBuscada};
     console.log(idBusqueda);
     //Listar resultados
-    equipos.find(idBusqueda)
+    peliculas.find(idBusqueda)
     .then
     (
-        (listaEquipos)=>
+        (listaPeliculas)=>
         {
-            res.send(listaEquipos); //devuelvo resultado query   
-            console.log(listaEquipos);    
+            res.send(listaPeliculas); //devuelvo resultado query   
+            console.log(listaPeliculas);    
         },
         (err)=>{console.log(err);}
     )       
@@ -39,13 +39,13 @@ let getEquipoById = (req, res) =>
 
 
 
-let updateEquipo = (nombre,promedio) => 
+let updatePelicula = (nombre,promedio) => 
 {
     let id = { nombre : nombre};
     let newPromedio = {promedio: promedio};
     console.log(id);
     console.log(newPromedio);
-    equipos.findOneAndUpdate(id,newPromedio,{new:true},function(err, todo)
+    peliculas.findOneAndUpdate(id,newPromedio,{new:true},function(err, todo)
     {
         (err)=>{console.log(err);}
         (newPromedio)=>
@@ -56,4 +56,4 @@ let updateEquipo = (nombre,promedio) =>
     });
 }
 
-module.exports = {getEquipos,getEquipoById,updateEquipo};
+module.exports = {getPeliculas,getPeliculaById,updatePelicula};
