@@ -12,4 +12,4 @@ var comentarioSchema = new Schema({
 
 var Comentarios = mongoose.model('Comentario', comentarioSchema);
 console.log("se creo modelo comentario para las peliculas");
-module.exports = Comentrios;
+module.exports = Comentarios;
