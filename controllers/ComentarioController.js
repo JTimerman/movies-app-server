@@ -45,4 +45,26 @@ let setComentario = (req,res) =>
 }
 
 
-module.exports = {getComentarios,setComentario};
+let getComentariosByUser = (req, res) =>
+{      
+   let usuario={nombreUsuario:req.body.nombreUsuario};
+  
+   console.log(usuario);
+    comentario.find(usuario)
+    .then
+    (
+        (listaComentarios)=>
+        {
+            res.send(listaComentarios); //devuelvo resultado query   
+            //console.log(listaContactos);    
+        },
+        (err)=>{console.log(err);}
+    )       
+};
+
+
+
+
+
+
+module.exports = {getComentarios,setComentario,getComentariosByUser};
