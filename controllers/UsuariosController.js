@@ -45,7 +45,7 @@ let setUsuario = (req,res) =>
 {
 
    
-   console.log('entre a setusuario')
+   //console.log('entre a setusuario')
    //creo nuevo usuario
    var newUsuario = usuario({
     nombreUsuario:req.body.nombreUsuario,
@@ -69,6 +69,7 @@ let setUsuario = (req,res) =>
                     (newUsuario)=>
                     {
                         console.log(newUsuario);
+                        res.send(true);
                     },
                     (err)=>{console.log(err);
                     }
@@ -76,7 +77,7 @@ let setUsuario = (req,res) =>
             }   
             else{
 
-                console.log('El usuario ya existe ')
+                res.send(false);
             }   
         },
         (err)=>{console.log(err)}
