@@ -19,20 +19,20 @@ let getPeliculas = (req,res) =>
     )       
 };
 
-let getPeliculaById = (req, res) =>
+let getPeliculaByName = (req, res) =>
 {      
-    console.log("llegue a leer con filtro");
-    //Obtener id busqueda
-    let idBusqueda = {nombre: req.body.peliculaBuscada};
-    console.log(idBusqueda);
+    console.log(req.body.nombre);
+   
+    let nombrePelicula = {nombre: req.body.nombre};
+    console.log(nombrePelicula);
     //Listar resultados
-    peliculas.find(idBusqueda)
+    peliculas.find(nombrePelicula)
     .then
     (
         (listaPeliculas)=>
-        {
+        {   console.log(listaPeliculas);   
             res.send(listaPeliculas); //devuelvo resultado query   
-            console.log(listaPeliculas);    
+             
         },
         (err)=>{console.log(err);}
     )       
@@ -114,4 +114,4 @@ let getComentariosPelicula = (pelicula)=>
 
 
 
-module.exports = {getPeliculas,getPeliculaById,updatePelicula,getComentariosPelicula,updatePeliculaNewComment};
+module.exports = {getPeliculas,getComentariosPelicula,updatePeliculaNewComment,getPeliculaByName};
