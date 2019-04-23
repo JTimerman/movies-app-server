@@ -64,7 +64,21 @@ router.get('/setComentario',function(req,res)
     comentarioController.setComentario(req,res);
 });
 
+//EndPoint para leer equipos por nombre
+router.post('/getPeliculaById/?id',function(req,res)
 
+{
+    console.log("getPelicula con filtro");
+    peliculaController.getPeliculaById(req,res);
+});
+
+
+//EndPoint para leer peliculas comentadas por usuario
+router.post('/getPeliculasbyUsuario/idUsuario',function(req,res)
+{
+    console.log(req.body);
+    comentarioController.getComentariosByUsuario(req,res);
+})
 
 // Export API routes
 module.exports = router;
