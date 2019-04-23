@@ -87,8 +87,53 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
 };
 
 
+//busco la pelicula, si no existe la creo, si existe emito un error
+let setPelicula = (req,res) =>
+{
+
+   
+   //console.log('entre a set')
+   //creo nueva pelicula
+   var newPelicula = pelicula({
+    nombre:req.body.nombre,
+    promedio:req.body.promedio,
+    cantidadVotos:req.body.cantidadVotos,
+    totalPuntaje:req.body.totalPuntaje,
+    idPelicula:req.body.idPelicula
+    });
+
+//verico que no exista la peli
+    let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
+    
+    peliculas.find(busqueda)
+    .then
+    (
+        (peliculaBuscada)=>
+        {
+            if (peliculaBuscada.length==0)
+            {
+                newPelicula.save().
+                then
+                (
+                    (newPelicula)=>
+                    {
+                        console.log(newPelicula);
+                        res.send(true);
+                    },
+                    (err)=>{console.log(err);
+                    }
+                ) 
+            }   
+            else{
+
+                res.send(false);
+            }   
+        },
+        (err)=>{console.log(err)}
+    );      
+
+}
 
 
 
-
-module.exports = {getPeliculas,updatePeliculaNewComment,getPeliculaByName};
+module.exports = {getPeliculas,updatePeliculaNewComment,getPeliculaByName,setPelicula};

@@ -49,6 +49,12 @@ router.post('/updateUsuario/usuario',function(req,res)
     usuarioController.updateUsuario(req,res);
 });
 
+//EndPoint para insertar pelicula
+router.post('/setPelicula/pelicula',function(req,res)
+{
+   
+    peliculaController.setPelicula(req,res);
+});
 
 
 //--------------------COMENTARIOS---------------------
