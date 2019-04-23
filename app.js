@@ -7,7 +7,7 @@ var cors = require('cors');
 var app = express();
 
 //conectar BD
-var urlBD = 'mongodb://localhost/appdist';
+var urlBD = 'mongodb://localhost/movies-app';//cambiar
 //opciones conexion
 var opts = {useNewUrlParser : true, connectTimeoutMS:20000};
 //importo driver
@@ -42,7 +42,7 @@ var port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('Hello World with Express'));
 
 // Use Api routes in the App
-app.use('/apiAppDist', apiRoutes);
+app.use('/apiPeliculas', apiRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {

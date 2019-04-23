@@ -1,7 +1,7 @@
 // Initialize express router
 let router = require('express').Router();
-let apiController = require('./controllers/EquipoController');
-let votoController = require('./controllers/VotoController');
+let usuarioController = require('./controllers/UsuariosController');
+//let PeliculaController = require('./controllers/VotoController');
        
     
 
@@ -16,11 +16,12 @@ router.get('/', function (req, res)
 });
 
 //EndPoint para leer toda la base
-router.get('/getEquipos',function(req,res)
+router.get('/getUsuario',function(req,res)
 {
-    console.log("getEquipos");
-    apiController.getEquipos(req,res);
+    console.log("getUsuario");
+    usuarioController.getUsuario(req,res);
 });
+/*
 //EndPoint para leer equipos por nombre
 router.post('/getEquipoById/?id',function(req,res)
 {
@@ -40,6 +41,6 @@ router.post('/getEquiposByUsuario/idUsuario',function(req,res)
     console.log(req.body);
     votoController.getVotosByUsuario(req,res);
 });
-
+*/
 // Export API routes
 module.exports = router;

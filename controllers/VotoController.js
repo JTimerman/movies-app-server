@@ -1,6 +1,6 @@
 var votos = require('../models/Voto');
 var bodyParser = require('body-parser');
-var equipos = require('./EquipoController');
+//var equipos = require('./EquipoController');
 
 let insertVoto = (req,res) =>
 {

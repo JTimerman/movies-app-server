@@ -11,3 +11,5 @@ var peliculaSchema = new Schema({
 var Peliculas = mongoose.model('Pelicula', peliculaSchema);
 console.log("se creo modelo");
 module.exports = Peliculas;
+
+
