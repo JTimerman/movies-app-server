@@ -72,7 +72,7 @@ router.post('/setComentario/comentario',function(req,res)
 
 
 
-
+//---------------PELICULAS------------------
 //EndPoint para leer todas las peliculas 
 router.get('/getPeliculas',function(req,res)
 {

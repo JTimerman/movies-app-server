@@ -85,33 +85,10 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
     )   
     
 };
-//not use
-let getComentariosPelicula = (pelicula)=>
-{
-    let idBusqueda = {nombrePelicula : pelicula};
-    //Listar resultados
-    comentarios.find(idBusqueda)
-    .then
-    (
-        (listaPeliculas)=>
-        {
-            let total=0;
-            let cant=0;
-            listaPeliculas.forEach((element)=>{
-               
-                total = parseFloat(total) + parseFloat(element.promedio);
-                cant= cant +1;
-            })
-            let newPromedio = parseFloat(total)  /parseFloat(cant);
-            //console.log(`suma ${total} cant ${cant} promedio ${newPromedio}`);    
-            equipos.updatePelicula(pelicula,newPromedio);
-        },
-        (err)=>{console.log(err);}
-    )   
-};
 
 
 
 
 
-module.exports = {getPeliculas,getComentariosPelicula,updatePeliculaNewComment,getPeliculaByName};
+
+module.exports = {getPeliculas,updatePeliculaNewComment,getPeliculaByName};

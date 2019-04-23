@@ -7,6 +7,7 @@ var peliculaSchema = new Schema({
     promedio:Number, 
     cantidadVotos:Number,
     totalPuntaje:Number,
+    imagen:String
    
 });
 
