@@ -4,8 +4,10 @@ var peliculaController=require ('../controllers/peliculaController');
     
 let getComentarios = (req, res) =>
 {      
-   
-    comentario.find()
+   let pelicula={nombrePelicula:req.body.nombrePelicula};
+  
+   console.log(req.body.nombrePelicula);
+    comentario.find(pelicula)
     .then
     (
         (listaComentarios)=>

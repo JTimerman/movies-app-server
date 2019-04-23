@@ -1,7 +1,7 @@
 var usuario = require('../models/Usuario');
 var bodyParser = require('body-parser');
 
-let rdoBusqueda = false;
+
 
 let getUsuario = (req, res) =>
 {      
@@ -20,7 +20,7 @@ let getUsuario = (req, res) =>
     )       
 };
 
-function usuarioExiste (req,rdoBusqueda)
+function usuarioExiste (req,res)
 {      
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
     

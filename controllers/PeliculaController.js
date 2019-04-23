@@ -24,7 +24,7 @@ let getPeliculaByName = (req, res) =>
     console.log(req.body.nombre);
    
     let nombrePelicula = {nombre: req.body.nombre};
-    console.log(nombrePelicula);
+    
     //Listar resultados
     peliculas.find(nombrePelicula)
     .then

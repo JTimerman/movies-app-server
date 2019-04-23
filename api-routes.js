@@ -52,7 +52,7 @@ router.post('/updateUsuario/usuario',function(req,res)
 
 
 //--------------------COMENTARIOS---------------------
-router.get('/getComentarios',function(req,res)
+router.get('/getComentarios/pelicula',function(req,res)
 {
     console.log("getComentarios");
     comentarioController.getComentarios(req,res);
