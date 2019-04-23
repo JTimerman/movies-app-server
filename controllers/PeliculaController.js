@@ -58,14 +58,17 @@ let updatePelicula = (nombre,promedio) =>
 let updatePeliculaNewComment = (nombre,puntaje) => 
 {
     let id = { nombre : nombre};
-    let newPromedio = {promedio: promedio};
-    newPromedio = newPromedio + puntaje;    
+    let newPromedio = {promedio: promedio};       
     let CantidadVotos = {cantidadVotos: cantidadVotos};
+    let newVotosTotales = {votosTotales: votosTotales};
+    newVotosTotales = newVotosTotales + puntaje;
     CantidadVotos = CantidadVotos+1;
+    newPromedio = newVotosTotales/votosTotales; 
     console.log(id);
     console.log(newPromedio);
+    console.log(newVotosTotales);
     console.log(newCantidadVotos);
-    peliculas.findOneAndUpdate(id,newPromedio,CantidadVotos+1,function(err, todo)
+    peliculas.findOneAndUpdate(id,newPromedio,CantidadVotos,newVotosTotales,function(err, todo)
     {
         (err)=>{console.log(err);}
         (newPromedio)=>
