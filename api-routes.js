@@ -80,5 +80,13 @@ router.post('/getPeliculasbyUsuario/idUsuario',function(req,res)
     comentarioController.getComentariosByUsuario(req,res);
 })
 
+//EndPoint para leer todas las peliculas 
+router.post('/getPeliculas',function(res)
+{
+    console.log("pase por aca");
+    console.log(res.body);
+    peliculaController.getPeliculas(res);
+})
+
 // Export API routes
 module.exports = router;
