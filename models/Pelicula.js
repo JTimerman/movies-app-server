@@ -4,7 +4,7 @@ var peliculaSchema = mongoose.Schema;
 
 var peliculaSchema = new Schema({
     nombre:String,
-    puntajePromedio:Number, 
+    promedio:Number, 
     cantidadVotos:Number    
 });
 

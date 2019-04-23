@@ -1,5 +1,6 @@
 var peliculas = require('../models/Pelicula');
 var bodyParser = require('body-parser');
+var comentarios = require('../models/Comentario');
 
     
 let getPeliculas = (req, res) =>
@@ -37,8 +38,6 @@ let getPeliculaById = (req, res) =>
     )       
 };
 
-
-
 let updatePelicula = (nombre,promedio) => 
 {
     let id = { nombre : nombre};
@@ -54,6 +53,55 @@ let updatePelicula = (nombre,promedio) =>
         };
     
     });
-}
+};
 
-module.exports = {getPeliculas,getPeliculaById,updatePelicula};
+let updatePeliculaNewComment = (nombre,puntaje) => 
+{
+    let id = { nombre : nombre};
+    let newPromedio = {promedio: promedio};
+    newPromedio = newPromedio + puntaje;    
+    let CantidadVotos = {cantidadVotos: cantidadVotos};
+    CantidadVotos = CantidadVotos+1;
+    console.log(id);
+    console.log(newPromedio);
+    console.log(newCantidadVotos);
+    peliculas.findOneAndUpdate(id,newPromedio,CantidadVotos+1,function(err, todo)
+    {
+        (err)=>{console.log(err);}
+        (newPromedio)=>
+        {
+            console.log(`promedio actualizado ${todo.promedio}`);
+        };
+    
+    });
+};
+
+let getComentariosPelicula = (pelicula)=>
+{
+    let idBusqueda = {nombrePelicula : pelicula};
+    //Listar resultados
+    comentarios.find(idBusqueda)
+    .then
+    (
+        (listaPeliculas)=>
+        {
+            let total=0;
+            let cant=0;
+            listaPeliculas.forEach((element)=>{
+               
+                total = parseFloat(total) + parseFloat(element.promedio);
+                cant= cant +1;
+            })
+            let newPromedio = parseFloat(total)  /parseFloat(cant);
+            //console.log(`suma ${total} cant ${cant} promedio ${newPromedio}`);    
+            equipos.updatePelicula(pelicula,newPromedio);
+        },
+        (err)=>{console.log(err);}
+    )   
+};
+
+
+
+
+
+module.exports = {getPeliculas,getPeliculaById,updatePelicula,getComentariosPelicula,updatePeliculaNewComment};
