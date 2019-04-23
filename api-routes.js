@@ -29,21 +29,21 @@ router.get('/getUsuario',function(req,res)
 });
 
 //EndPoint para leer equipos por nombre
-router.post('/usuarioExiste',function(req,res)
+router.post('/usuarioExiste/usuarioBuscado',function(req,res)
 
 {
     console.log("usuario existe verificacion");
     usuarioController.usuarioExiste(req,res);
 });
 //EndPoint para insertar comentario
-router.post('/setUsuario',function(req,res)
+router.post('/setUsuario/usuario',function(req,res)
 {
-    
+   
     usuarioController.setUsuario(req,res);
 });
 
 //EndPoint para leer peliculas comentadas por usuario
-router.post('/updateUsuario',function(req,res)
+router.post('/updateUsuario/usuario',function(req,res)
 {
     console.log(req.body);
     usuarioController.updateUsuario(req,res);

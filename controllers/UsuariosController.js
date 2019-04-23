@@ -1,7 +1,8 @@
 var usuario = require('../models/Usuario');
 var bodyParser = require('body-parser');
 
-    
+let rdoBusqueda = false;
+
 let getUsuario = (req, res) =>
 {      
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
@@ -19,7 +20,7 @@ let getUsuario = (req, res) =>
     )       
 };
 
-let usuarioExiste = (req, res) =>
+function usuarioExiste (req,rdoBusqueda)
 {      
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
     
@@ -28,52 +29,73 @@ let usuarioExiste = (req, res) =>
     (
         (usuarioBuscado)=>
         {
-            return true;
-             
+            
+            console.log('existe');
+            
+            
+            
         },
-        (err)=>{return false;}
+        (err)=>{console.log(err)}
     )       
 };
-//busco el usuario si no existo lo creo si existe emito un error
 
+
+//busco el usuario si no existo lo creo si existe emito un error
 let setUsuario = (req,res) =>
 {
 
    
-let usuarioExiste=usuarioExiste(req,res);
-
-   // console.log(req.body);
-    var newUsuario = Usuario({
-        nombreUsuario:req.body.nombreUsuario,
-        email:req.body.email,
-        clave:req.body.clave,
-       
-        
+   console.log('entre a setusuario')
+   //creo nuevo usuario
+   var newUsuario = usuario({
+    nombreUsuario:req.body.nombreUsuario,
+    email:req.body.email,
+    clave:req.body.clave
     });
-    newUsuario.save().
-    then
-    (
-        (newUsuario)=>
-        {
-            
-          
-        },
-        (err)=>{console.log(err);}
-    ) 
-}
 
-let updateUsuario = (req, res) =>
-{      
+//verico que no exista el usuario
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
-    let busquedaClave={clave:req.body.clave};
+    
     usuario.find(busqueda)
     .then
     (
         (usuarioBuscado)=>
         {
+            if (usuarioBuscado.length==0)
+            {
+                newUsuario.save().
+                then
+                (
+                    (newUsuario)=>
+                    {
+                        console.log(newUsuario);
+                    },
+                    (err)=>{console.log(err);
+                    }
+                ) 
+            }   
+            else{
+
+                console.log('El usuario ya existe ')
+            }   
+        },
+        (err)=>{console.log(err)}
+    );      
+
+}
+
+let updateUsuario = (req, res) =>
+{      
+    let busqueda = ({nombreUsuario: req.body.nombreUsuario},{clave:req.body.clave});
+
+    usuario.findOneAndUpdate(busqueda)
+    .then
+    (
+        (usuarioBuscado)=>
+        {
             
-            usuario.findOneAndUpdate(busquedaClave);
-            //res.send(usuarioBuscado); //devuelvo resultado query   
+          console.log(usuarioBuscado);
+             
              
         },
         (err)=>{console.log(err);}
@@ -87,4 +109,4 @@ let updateUsuario = (req, res) =>
 
 
 
-module.exports = {getUsuario,setUsuario,updateUsuario};
+module.exports = {getUsuario,setUsuario,updateUsuario,usuarioExiste};
