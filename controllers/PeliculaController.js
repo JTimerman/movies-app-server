@@ -38,23 +38,6 @@ let getPeliculaById = (req, res) =>
     )       
 };
 
-let updatePelicula = (nombre,promedio) => 
-{
-    let id = { nombre : nombre};
-    let newPromedio = {promedio: promedio};
-    console.log(id);
-    console.log(newPromedio);
-    peliculas.findOneAndUpdate(id,newPromedio,{new:true},function(err, todo)
-    {
-        (err)=>{console.log(err);}
-        (newPromedio)=>
-        {
-            console.log(`promedio actualizado ${todo.promedio}`);
-        };
-    
-    });
-};
-
 
 
 
