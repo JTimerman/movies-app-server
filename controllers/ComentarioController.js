@@ -27,7 +27,7 @@ let setComentario = (req,res) =>
         comentario:req.body.comentario,
         puntaje:req.body.puntaje,
         nombreUsuario:req.body.nombreUsuario,
-        pelicula: req.body.pelicula,
+        nombrePelicula: req.body.nombrePelicula,
         
     });
     newComentario.save().
@@ -37,7 +37,8 @@ let setComentario = (req,res) =>
         {
             //res.send(newVoto); //devuelvo resultado query 
            // getVotosEquipo(req.body.nombre); 
-           peliculaController.updatePeliculaNewComment(req.body.pelicula,req.body.puntaje);   
+           
+           peliculaController.updatePeliculaNewComment(req.body.nombrePelicula,req.body.puntaje);   
         },
         (err)=>{console.log(err);}
     ) 

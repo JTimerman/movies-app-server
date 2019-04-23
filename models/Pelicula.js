@@ -7,7 +7,7 @@ var peliculaSchema = new Schema({
     promedio:Number, 
     cantidadVotos:Number,
     totalPuntaje:Number,
-    idPelicula:Number  
+   
 });
 
 var Peliculas = mongoose.model('Pelicula', peliculaSchema);

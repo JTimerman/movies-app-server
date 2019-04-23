@@ -59,30 +59,48 @@ let updatePelicula = (nombre,promedio) =>
 
 
 
-let updatePeliculaNewComment = (nombre,puntaje) => 
+let updatePeliculaNewComment = (nombrePelicula,puntaje) => 
 {
-    let id = { nombre : nombre};
-    let newPromedio = {promedio: promedio};       
-    let CantidadVotos = {cantidadVotos: cantidadVotos};
-    let newVotosTotales = {votosTotales: votosTotales};
-    newVotosTotales = newVotosTotales + puntaje;
-    CantidadVotos = CantidadVotos+1;
-    newPromedio = newVotosTotales/votosTotales; 
-    console.log(id);
-    console.log(newPromedio);
-    console.log(newVotosTotales);
-    console.log(newCantidadVotos);
+
     
-    
-    peliculas.findOneAndUpdate(id,newPromedio,CantidadVotos,newVotosTotales,function(err, todo)
-    {
-        (err)=>{console.log(err);}
-        (newPromedio)=>
+    let busqueda = {nombre: nombrePelicula};
+
+   
+   console.log(busqueda);
+   
+    peliculas.find(busqueda)
+    .then
+    (
+        (busquedaEncontrada)=>
         {
-            console.log(`promedio actualizado ${todo.promedio}`);
-        };
+           let totalVotos=0;
+           let totalPuntajeCalculado=0;
+           let promedioTotal=0;
+         busquedaEncontrada.forEach((element)=>{
+            
+            totalVotos=parseFloat(element.cantidadVotos+1);
+            totalPuntajeCalculado=parseFloat(element.totalPuntaje+puntaje);
+            promedioTotal=totalVotos/totalPuntajeCalculado;
+            //console.log(totalVotos);
+            //console.log(totalPuntajeCalculado);
+            //console.log(promedioTotal);
+            })
+            
+            peliculas.findOneAndUpdate({nombre:nombrePelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
+            .then(
+                    (updatePelicula)=>{
+
+                    console.log('se actualizo pelicula');
+
+
+                    },
+                    (err)=>{console.log(err);}
+
+            )
+        },
+        (err)=>{console.log(err);}
+    )   
     
-    });
 };
 
 let getComentariosPelicula = (pelicula)=>
