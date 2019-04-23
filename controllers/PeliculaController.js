@@ -116,7 +116,7 @@ let setPelicula = (req,res) =>
    
    //console.log('entre a set')
    //creo nueva pelicula
-   var newPelicula = pelicula({
+   var newPelicula = peliculas({
     nombre:req.body.nombre,
     promedio:req.body.promedio,
     cantidadVotos:req.body.cantidadVotos,
