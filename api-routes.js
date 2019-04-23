@@ -20,6 +20,8 @@ router.get('/', function (req, res)
 
 //EndPoint para leer toda la base
 
+//-----------------USUARIOS-----------------------
+
 router.get('/getUsuario',function(req,res)
 {
     console.log("getUsuario");
@@ -27,25 +29,42 @@ router.get('/getUsuario',function(req,res)
 });
 
 //EndPoint para leer equipos por nombre
-router.post('/getEquipoById/?id',function(req,res)
+router.post('/usuarioExiste',function(req,res)
 
 {
-    console.log("getPelicula con filtro");
-    apiController.getPeliculaById(req,res);
+    console.log("usuario existe verificacion");
+    usuarioController.usuarioExiste(req,res);
 });
 //EndPoint para insertar comentario
-router.post('/insertComentario/Comentario',function(req,res)
+router.post('/setUsuario',function(req,res)
 {
-    console.log(req.body);
-    votoController.insertComentario(req,res);
+    
+    usuarioController.setUsuario(req,res);
 });
 
 //EndPoint para leer peliculas comentadas por usuario
-router.post('/getPeliculasbyUsuario/idUsuario',function(req,res)
+router.post('/updateUsuario',function(req,res)
 {
     console.log(req.body);
-    comentarioController.getComentariosByUsuario(req,res);
+    usuarioController.updateUsuario(req,res);
 });
+
+
+
+//--------------------COMENTARIOS---------------------
+router.get('/getComentarios',function(req,res)
+{
+    console.log("getComentarios");
+    comentarioController.getComentarios(req,res);
+});
+
+router.get('/setComentario',function(req,res)
+{
+    console.log("setComentario");
+    comentarioController.setComentario(req,res);
+});
+
+
 
 // Export API routes
 module.exports = router;
