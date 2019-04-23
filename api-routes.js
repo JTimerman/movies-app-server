@@ -89,5 +89,13 @@ router.get('/getPeliculasByName/pelicula',function(req,res)
     peliculaController.getPeliculaByName(req,res);
 })
 
+//EndPoint para leer todas las peliculas 
+router.get('/getPeliculasById/id',function(req,res)
+{
+   
+   // console.log(res.body);
+    peliculaController.getPeliculaById(req,res);
+})
+
 // Export API routes
 module.exports = router;

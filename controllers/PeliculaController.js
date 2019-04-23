@@ -3,6 +3,9 @@ var bodyParser = require('body-parser');
 var comentarios = require('../models/Comentario');
 
     
+
+
+
 let getPeliculas = (req,res) =>
 {      
     console.log("llegue a leer");
@@ -14,6 +17,25 @@ let getPeliculas = (req,res) =>
         {
             res.send(listaPeliculas); //devuelvo resultado query   
             //console.log(listaContactos);    
+        },
+        (err)=>{console.log(err);}
+    )       
+};
+
+let getPeliculaById = (req, res) =>
+{      
+    console.log(req.body.nombre);
+   
+    let nombrePelicula = {idPelicula: req.body.idPelicula};
+    
+    //Listar resultados
+    peliculas.find(nombrePelicula)
+    .then
+    (
+        (listaPeliculas)=>
+        {   console.log(listaPeliculas);   
+            res.send(listaPeliculas); //devuelvo resultado query   
+             
         },
         (err)=>{console.log(err);}
     )       
@@ -42,14 +64,14 @@ let getPeliculaByName = (req, res) =>
 
 
 
-let updatePeliculaNewComment = (nombrePelicula,puntaje) => 
+let updatePeliculaNewComment = (idPelicula,puntaje) => 
 {
 
     
-    let busqueda = {nombre: nombrePelicula};
+    let busqueda = {idPelicula: idPelicula};
 
    
-   console.log(busqueda);
+   //console.log(busqueda);
    
     peliculas.find(busqueda)
     .then
@@ -69,7 +91,7 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
             //console.log(promedioTotal);
             })
             
-            peliculas.findOneAndUpdate({nombre:nombrePelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
+            peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
             .then(
                     (updatePelicula)=>{
 
@@ -91,4 +113,4 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
 
 
 
-module.exports = {getPeliculas,updatePeliculaNewComment,getPeliculaByName};
+module.exports = {getPeliculas,updatePeliculaNewComment,getPeliculaById,getPeliculaByName};

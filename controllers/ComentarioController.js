@@ -4,7 +4,7 @@ var peliculaController=require ('../controllers/peliculaController');
     
 let getComentarios = (req, res) =>
 {      
-   let pelicula={nombrePelicula:req.body.nombrePelicula};
+   let pelicula={idPelicula:req.body.idPelicula};
   
    console.log(req.body.nombrePelicula);
     comentario.find(pelicula)
@@ -28,7 +28,7 @@ let setComentario = (req,res) =>
         comentario:req.body.comentario,
         puntaje:req.body.puntaje,
         nombreUsuario:req.body.nombreUsuario,
-        nombrePelicula: req.body.nombrePelicula,
+        idPelicula: req.body.idPelicula,
         
     });
     newComentario.save().
@@ -38,7 +38,7 @@ let setComentario = (req,res) =>
         {
             
            
-           peliculaController.updatePeliculaNewComment(req.body.nombrePelicula,req.body.puntaje);   
+           peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);   
         },
         (err)=>{console.log(err);}
     ) 
