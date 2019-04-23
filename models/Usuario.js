@@ -2,13 +2,12 @@ var mongoose = require('mongoose');
 
 var usuarioSchema = mongoose.Schema;
 
-var usuarioSchema = new Schema({
+var usuarioSchema = new usuarioSchema({
     nombreUsuario:String,
     email:String,
-    clave:String,
-    id:String
+    clave:String
 });
 
-var Usuarios = mongoose.model('Voto', usuarioSchema);
+var Usuarios = mongoose.model('Usuario', usuarioSchema);
 console.log("se creo modelo");
 module.exports = Usuarios;
