@@ -23,7 +23,7 @@ let getComentarios = (req, res) =>
 let setComentario = (req,res) =>
 {
    // console.log(req.body);
-    var newComentario = Comentario({
+    var newComentario = comentario({
         comentario:req.body.comentario,
         puntaje:req.body.puntaje,
         nombreUsuario:req.body.nombreUsuario,

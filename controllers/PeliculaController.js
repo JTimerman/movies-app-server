@@ -55,6 +55,10 @@ let updatePelicula = (nombre,promedio) =>
     });
 };
 
+
+
+
+
 let updatePeliculaNewComment = (nombre,puntaje) => 
 {
     let id = { nombre : nombre};
@@ -68,6 +72,8 @@ let updatePeliculaNewComment = (nombre,puntaje) =>
     console.log(newPromedio);
     console.log(newVotosTotales);
     console.log(newCantidadVotos);
+    
+    
     peliculas.findOneAndUpdate(id,newPromedio,CantidadVotos,newVotosTotales,function(err, todo)
     {
         (err)=>{console.log(err);}

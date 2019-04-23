@@ -58,7 +58,7 @@ router.get('/getComentarios',function(req,res)
     comentarioController.getComentarios(req,res);
 });
 
-router.get('/setComentario',function(req,res)
+router.post('/setComentario/comentario',function(req,res)
 {
     console.log("setComentario");
     comentarioController.setComentario(req,res);

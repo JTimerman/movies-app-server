@@ -6,7 +6,8 @@ var peliculaSchema = new Schema({
     nombre:String,
     promedio:Number, 
     cantidadVotos:Number,
-    votosTotales:Number    //lala
+    totalPuntaje:Number,
+    idPelicula:Number  
 });
 
 var Peliculas = mongoose.model('Pelicula', peliculaSchema);
