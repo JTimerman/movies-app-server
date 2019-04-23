@@ -37,7 +37,7 @@ let setComentario = (req,res) =>
         {
             //res.send(newVoto); //devuelvo resultado query 
            // getVotosEquipo(req.body.nombre); 
-           peliculaController.updatePelicula(req.body.pelicula,req.body.puntaje);   
+           peliculaController.updatePeliculaNewComment(req.body.pelicula,req.body.puntaje);   
         },
         (err)=>{console.log(err);}
     ) 
