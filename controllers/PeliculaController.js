@@ -61,8 +61,8 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
            let promedioTotal=0;
          busquedaEncontrada.forEach((element)=>{
             
-            totalVotos=parseFloat(element.cantidadVotos+1);
-            totalPuntajeCalculado=parseFloat(element.totalPuntaje+puntaje);
+            totalVotos=parseFloat(element.cantidadVotos)+1;
+            totalPuntajeCalculado=parseFloat(element.totalPuntaje)+puntaje;
             promedioTotal=totalVotos/totalPuntajeCalculado;
             //console.log(totalVotos);
             //console.log(totalPuntajeCalculado);
