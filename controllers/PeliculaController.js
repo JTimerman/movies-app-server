@@ -85,7 +85,7 @@ let updatePeliculaNewComment = (nombrePelicula,puntaje) =>
     )   
     
 };
-
+//not use
 let getComentariosPelicula = (pelicula)=>
 {
     let idBusqueda = {nombrePelicula : pelicula};

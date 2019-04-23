@@ -71,12 +71,7 @@ router.post('/setComentario/comentario',function(req,res)
 
 
 
-//EndPoint para leer peliculas comentadas por usuario
-router.get('/getPeliculasbyUsuario/idUsuario',function(req,res)
-{
-    console.log(req.body);
-    peliculaController.getComentariosByUsuario(req,res);
-})
+
 
 //EndPoint para leer todas las peliculas 
 router.get('/getPeliculas',function(req,res)
