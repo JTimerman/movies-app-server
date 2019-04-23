@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var comentarios = require('../models/Comentario');
 
     
-let getPeliculas = (res) =>
+let getPeliculas = (req,res) =>
 {      
     console.log("llegue a leer");
     //Listar resultados

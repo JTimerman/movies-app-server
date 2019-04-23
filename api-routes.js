@@ -65,7 +65,7 @@ router.post('/setComentario/comentario',function(req,res)
 });
 
 //EndPoint para leer equipos por nombre
-router.post('/getPeliculaById/?id',function(req,res)
+router.get('/getPeliculaById/id',function(req,res)
 
 {
     console.log("getPelicula con filtro");
@@ -74,18 +74,18 @@ router.post('/getPeliculaById/?id',function(req,res)
 
 
 //EndPoint para leer peliculas comentadas por usuario
-router.post('/getPeliculasbyUsuario/idUsuario',function(req,res)
+router.get('/getPeliculasbyUsuario/idUsuario',function(req,res)
 {
     console.log(req.body);
-    comentarioController.getComentariosByUsuario(req,res);
+    peliculaController.getComentariosByUsuario(req,res);
 })
 
 //EndPoint para leer todas las peliculas 
-router.post('/getPeliculas',function(res)
+router.get('/getPeliculas',function(req,res)
 {
     console.log("pase por aca");
     console.log(res.body);
-    peliculaController.getPeliculas(res);
+    peliculaController.getPeliculas(req,res);
 })
 
 // Export API routes

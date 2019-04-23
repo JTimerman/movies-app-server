@@ -4,8 +4,7 @@ var peliculaController=require ('../controllers/peliculaController');
     
 let getComentarios = (req, res) =>
 {      
-   // console.log("llegue a leer");
-    //Listar resultados
+   
     comentario.find()
     .then
     (
@@ -35,8 +34,7 @@ let setComentario = (req,res) =>
     (
         (newComentario)=>
         {
-            //res.send(newVoto); //devuelvo resultado query 
-           // getVotosEquipo(req.body.nombre); 
+            
            
            peliculaController.updatePeliculaNewComment(req.body.nombrePelicula,req.body.puntaje);   
         },
