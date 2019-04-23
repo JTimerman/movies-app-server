@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var peliculaSchema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 var peliculaSchema = new Schema({
     nombre:String,
