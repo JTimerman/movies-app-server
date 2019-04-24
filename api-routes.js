@@ -59,7 +59,7 @@ router.post('/setPelicula/pelicula',function(req,res)
 
 
 //--------------------COMENTARIOS---------------------
-//testeado
+//testeado. hay que pasar el id por parametro
 router.post('/getComentarios/pelicula',function(req,res)
 {
     console.log("getComentarios");
