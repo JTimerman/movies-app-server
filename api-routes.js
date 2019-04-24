@@ -101,7 +101,7 @@ router.get('/getPeliculasByName/pelicula',function(req,res)
 
 //EndPoint para leer todas las peliculas 
 //testeado
-router.get('/getPeliculasById/id',function(req,res)
+router.post('/getPeliculasById/id',function(req,res)
 {
    
    // console.log(res.body);
