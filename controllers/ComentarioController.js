@@ -38,6 +38,23 @@ let setComentario = (req,res) =>
         
     });
 
+    newComentario.save()
+    .then
+    (
+        
+        (comentario)=>{
+            console.log('guarde el comentario');
+            
+           // peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje);
+
+        },(err)=>{console.log(err);}
+
+
+    )
+
+
+
+
     peliculas.find(busqueda)
     .then
     (
@@ -47,34 +64,12 @@ let setComentario = (req,res) =>
             if(peliculaEncontrada.length==0){
                 
                 peliculaController.setPelicula(req.body.pelicula,res)
-                .then
-                (
-                    (BusquedaEncontrada)=>{
-                        //console.log(BusquedaEncontrada);
-                        newComentario.save()
-                        .then
-                        (
-                            
-                            (comentario)=>{
-                                console.log('guarde el comentario');
-                                
-                                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);
-
-                            },(err)=>{console.log(err);}
-
-
-                        )
-
-                    },(err)=>{console.log(err);}
-                   
-
-                );
                 
-
+                
             }
             else{
-                console.log('esta peli ya existe!')
-                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);  
+
+               // peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje);  
                 newComentario.save() 
             }
 
@@ -83,7 +78,7 @@ let setComentario = (req,res) =>
 
 
     );
-
+    peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje); 
 }
 
 
