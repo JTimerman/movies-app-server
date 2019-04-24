@@ -49,8 +49,8 @@ let setComentario = (req,res) =>
                 peliculaController.setPelicula(req.body.pelicula,res)
                 .then
                 (
-                    (BuscadadaPelicula)=>{
-                        console.log('setee la pelicula')
+                    (BusquedaEncontrada)=>{
+                        console.log(BusquedaEncontrada);
                         newComentario.save()
                         .then
                         (
@@ -67,7 +67,7 @@ let setComentario = (req,res) =>
                     },(err)=>{console.log(err);}
                    
 
-                )
+                );
                 
 
             }
@@ -81,7 +81,7 @@ let setComentario = (req,res) =>
         },(err)=>{console.log(err);}
 
 
-    )
+    );
 
 }
 
