@@ -46,7 +46,7 @@ let setComentario = (req,res) =>
          
             if(peliculaEncontrada.length==0){
                 
-                peliculaController.setPelicula(req.body)
+                peliculaController.setPelicula(req.body.pelicula)
                 .then
                 (
                     (BuscadadaPelicula)=>{
