@@ -1,7 +1,6 @@
 var comentario = require('../models/Comentario');
 var bodyParser = require('body-parser');
-var peliculaController=require ('../controllers/PeliculaController');
-    
+var pelicula=('../models/Pelicula');
 let getComentarios = (req, res) =>
 {      
    let pelicula={idPelicula:req.body.idPelicula};
@@ -23,26 +22,59 @@ let getComentarios = (req, res) =>
 
 let setComentario = (req,res) =>
 {
-   // console.log(req.body);
+    let busqueda=({idPelicula:req.body.pelicula.idPelicula});
+   
     var newComentario = comentario({
-        comentario:req.body.comentario,
-        puntaje:req.body.puntaje,
-        nombreUsuario:req.body.nombreUsuario,
-        idPelicula: req.body.idPelicula,
+        comentario:req.body.comentarios.comentario,
+        puntaje:req.body.comentarios.puntaje,
+        nombreUsuario:req.body.comentarios.nombreUsuario,
+        idPelicula: req.body.comentarios.idPelicula,
         
     });
-    newComentario.save().
-    then
+
+    pelicula.find(busqueda)
+    .then
     (
-        (newComentario)=>
+        (peliculaEncontrada)=>
         {
-            
-           
-           peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);   
-        },
-        (err)=>{console.log(err);}
-    ) 
+         
+            if(peliculaEncontrada.length==0){
+                console.log(req.pelicula);
+                pelicula.setPelicula(req.pelicula).then(
+                    (pelicula)=>{
+
+                        newComentario.save().then(
+                        
+                            (comentario)=>{
+
+                                pelicula.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+
+                            },(err)=>{console.log(err);}
+
+
+                        )
+
+                    },(err)=>{console.log(err);}
+                   
+
+                )
+                
+
+            }
+            else{
+
+                pelicula.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                newComentario.save() 
+            }
+
+
+        },(err)=>{console.log(err);}
+
+
+    )
+
 }
+
 
 
 let getComentariosByUser = (req, res) =>
