@@ -114,7 +114,7 @@ let setPelicula = (req,res) =>
 {
 
    //console.log("req.body",req.body);
-   console.log("req.body.pelicula",req.body.pelicula);
+   //console.log("req.body.pelicula",req.body.pelicula);
    //console.log('entre a set')
    //creo nueva pelicula
    var newPelicula = peliculas({
