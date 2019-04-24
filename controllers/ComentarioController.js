@@ -50,14 +50,15 @@ let setComentario = (req,res) =>
                 .then
                 (
                     (BusquedaEncontrada)=>{
-                        console.log(BusquedaEncontrada);
+                        //console.log(BusquedaEncontrada);
                         newComentario.save()
                         .then
                         (
                             
                             (comentario)=>{
                                 console.log('guarde el comentario');
-                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+                                
+                                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);
 
                             },(err)=>{console.log(err);}
 
@@ -73,7 +74,7 @@ let setComentario = (req,res) =>
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);  
                 newComentario.save() 
             }
 
