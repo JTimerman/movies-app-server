@@ -7,7 +7,7 @@ let getUsuario = (req, res) =>
 {      
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
     
-    usuario.find()
+    usuario.find(busqueda)
     .then
     (
         (usuarioBuscado)=>
