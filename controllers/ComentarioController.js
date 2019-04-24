@@ -25,24 +25,55 @@ let setComentario = (req,res) =>
 {
    // console.log(req.body);
     var newComentario = comentario({
-        comentario:req.body.comentario,
-        puntaje:req.body.puntaje,
-        nombreUsuario:req.body.nombreUsuario,
-        idPelicula: req.body.idPelicula,
+        comentario:req.body.comentario.comentario,
+        puntaje:req.body.comentario.puntaje,
+        nombreUsuario:req.body.comentario.nombreUsuario,
+        idPelicula: req.body.comentario.idPelicula,
         
     });
-    newComentario.save().
-    then
-    (
-        (newComentario)=>
-        {
-            
-           
-           peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);   
-        },
-        (err)=>{console.log(err);}
-    ) 
+    let pelicula=({idPelicula:idPelicula})
+    peliculaController.find(pelicula)
+    .then(
+
+        (peliculaEncontrada)=>{
+
+            if(peliculaEncontrada.length==0){
+                console.log(req.pelicula);
+                peliculaController.setPelicula(req.pelicula).then(
+                    (pelicula)=>{
+
+                        newComentario.save().then(
+                        
+                            (comentario)=>{
+
+                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+
+                            },(err)=>{console.log(err);}
+
+
+                        )
+
+                    },(err)=>{console.log(err);}
+                   
+
+                )
+                
+
+            }
+            else{
+
+                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                newComentario.save() 
+            }
+
+
+        },(err)=>{console.log(err);}
+
+
+    )
+
 }
+
 
 
 let getComentariosByUser = (req, res) =>
