@@ -113,15 +113,16 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
 let setPelicula = (req,res) =>
 {
 
-   
+   console.log(req.body);
+   console.log(req.body.pelicula);
    //console.log('entre a set')
    //creo nueva pelicula
    var newPelicula = peliculas({
-    nombre:req.body.pelicula.nombre,
-    promedio:req.body.pelicula.promedio,
-    cantidadVotos:req.body.pelicula.cantidadVotos,
-    totalPuntaje:req.body.pelicula.totalPuntaje,
-    idPelicula:req.body.pelicula.idPelicula
+    nombre:req.body.nombre,
+    promedio:req.body.promedio,
+    cantidadVotos:req.body.cantidadVotos,
+    totalPuntaje:req.body.totalPuntaje,
+    idPelicula:req.body.idPelicula
     });
 console.log(newPelicula);
 //verico que no exista la peli

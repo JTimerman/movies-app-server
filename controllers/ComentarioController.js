@@ -46,8 +46,10 @@ let setComentario = (req,res) =>
          
             if(peliculaEncontrada.length==0){
                 
-                peliculaController.setPelicula(req.body.pelicula).then(
-                    (pelicula)=>{
+                peliculaController.setPelicula(req.body.pelicula)
+                .then
+                (
+                    (BuscadadaPelicula)=>{
 
                         newComentario.save().then(
                         
@@ -69,7 +71,7 @@ let setComentario = (req,res) =>
             }
             else{
 
-                pelicula.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
                 newComentario.save() 
             }
 
