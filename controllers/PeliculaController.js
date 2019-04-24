@@ -118,11 +118,11 @@ let setPelicula = (req,res) =>
    //console.log('entre a set')
    //creo nueva pelicula
    var newPelicula = peliculas({
-    nombre:req.body.pelicula.nombre,
-    promedio:req.body.pelicula.promedio,
-    cantidadVotos:req.body.pelicula.cantidadVotos,
-    totalPuntaje:req.body.pelicula.totalPuntaje,
-    idPelicula:req.body.pelicula.idPelicula
+    nombre:pelicula.nombre,
+    promedio:pelicula.promedio,
+    cantidadVotos:pelicula.cantidadVotos,
+    totalPuntaje:pelicula.totalPuntaje,
+    idPelicula:pelicula.idPelicula
     });
 //console.log(newPelicula);
 //verico que no exista la peli
