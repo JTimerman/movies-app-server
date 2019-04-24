@@ -45,8 +45,8 @@ let setComentario = (req,res) =>
         {
          
             if(peliculaEncontrada.length==0){
-                console.log(req.pelicula);
-                peliculas.setPelicula(req.pelicula).then(
+                
+                peliculas.setPelicula(req.body.pelicula).then(
                     (pelicula)=>{
 
                         newComentario.save().then(
