@@ -1,7 +1,6 @@
 var comentario = require('../models/Comentario');
 var bodyParser = require('body-parser');
-var peliculaController=require ('../controllers/PeliculaController');
-    
+var pelicula=('../models/Pelicula');
 let getComentarios = (req, res) =>
 {      
    let pelicula={idPelicula:req.body.idPelicula};
@@ -23,30 +22,32 @@ let getComentarios = (req, res) =>
 
 let setComentario = (req,res) =>
 {
-   // console.log(req.body);
+    let busqueda=({idPelicula:req.body.pelicula.idPelicula});
+   
     var newComentario = comentario({
-        comentario:req.body.comentario.comentario,
-        puntaje:req.body.comentario.puntaje,
-        nombreUsuario:req.body.comentario.nombreUsuario,
-        idPelicula: req.body.comentario.idPelicula,
+        comentario:req.body.comentarios.comentario,
+        puntaje:req.body.comentarios.puntaje,
+        nombreUsuario:req.body.comentarios.nombreUsuario,
+        idPelicula: req.body.comentarios.idPelicula,
         
     });
-    let pelicula=({idPelicula:idPelicula})
-    peliculaController.find(pelicula)
-    .then(
 
-        (peliculaEncontrada)=>{
-
+    pelicula.find(busqueda)
+    .then
+    (
+        (peliculaEncontrada)=>
+        {
+         
             if(peliculaEncontrada.length==0){
                 console.log(req.pelicula);
-                peliculaController.setPelicula(req.pelicula).then(
+                pelicula.setPelicula(req.pelicula).then(
                     (pelicula)=>{
 
                         newComentario.save().then(
                         
                             (comentario)=>{
 
-                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+                                pelicula.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
 
                             },(err)=>{console.log(err);}
 
@@ -62,7 +63,7 @@ let setComentario = (req,res) =>
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                pelicula.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
                 newComentario.save() 
             }
 

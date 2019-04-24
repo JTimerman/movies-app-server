@@ -22,7 +22,7 @@ router.get('/', function (req, res)
 
 //-----------------USUARIOS-----------------------
 
-router.get('/getUsuario',function(req,res)
+router.post('/getUsuario/usuario',function(req,res)
 {
     console.log("getUsuario");
     usuarioController.getUsuario(req,res);

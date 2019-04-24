@@ -7,11 +7,12 @@ let getUsuario = (req, res) =>
 {      
     let busqueda = {nombreUsuario: req.body.nombreUsuario,clave:req.body.clave};
     
-    usuario.find(busqueda)
+    usuario.find()
     .then
     (
         (usuarioBuscado)=>
         {
+            
             res.send(usuarioBuscado); //devuelvo resultado query   
             //console.log(usuarioBuscado);
              
