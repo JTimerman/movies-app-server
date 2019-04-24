@@ -33,6 +33,7 @@ let getPeliculaById = (req, res) =>
     .then
     (
         (listaPeliculas)=>
+        
         {   console.log(listaPeliculas);   
             res.send(listaPeliculas); //devuelvo resultado query   
              
@@ -112,22 +113,22 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
 //busco la pelicula, si no existe la creo, si existe emito un error
 let setPelicula = (req,res) =>
 {
-
+    console.log(req);
    //console.log("req.body",req.body);
-   console.log("req.body.pelicula",req.body.pelicula);
+   //console.log("req.body.pelicula",req.body.pelicula);
    //console.log('entre a set')
    //creo nueva pelicula
    var newPelicula = peliculas({
-    nombre:req.body.nombre,
-    promedio:req.body.promedio,
-    cantidadVotos:req.body.cantidadVotos,
-    totalPuntaje:req.body.totalPuntaje,
-    idPelicula:req.body.idPelicula
+    nombre:req.nombre,
+    promedio:req.promedio,
+    cantidadVotos:req.cantidadVotos,
+    totalPuntaje:req.totalPuntaje,
+    idPelicula:req.idPelicula
     });
-console.log(newPelicula);
+//console.log(newPelicula);
 //verico que no exista la peli
     //let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
-    let busqueda = {idPelicula:req.body.idPelicula};
+    let busqueda = {idPelicula:req.idPelicula};
     peliculas.find(busqueda)
     .then
     (

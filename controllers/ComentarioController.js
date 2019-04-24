@@ -46,16 +46,19 @@ let setComentario = (req,res) =>
          
             if(peliculaEncontrada.length==0){
                 
-                peliculaController.setPelicula(req.body.pelicula)
+                peliculaController.setPelicula(req.body.pelicula,res)
                 .then
                 (
-                    (BuscadadaPelicula)=>{
-
-                        newComentario.save().then(
-                        
+                    (BusquedaEncontrada)=>{
+                        //console.log(BusquedaEncontrada);
+                        newComentario.save()
+                        .then
+                        (
+                            
                             (comentario)=>{
-
-                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+                                console.log('guarde el comentario');
+                                
+                                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);
 
                             },(err)=>{console.log(err);}
 
@@ -65,13 +68,13 @@ let setComentario = (req,res) =>
                     },(err)=>{console.log(err);}
                    
 
-                )
+                );
                 
 
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
+                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);  
                 newComentario.save() 
             }
 
@@ -79,7 +82,7 @@ let setComentario = (req,res) =>
         },(err)=>{console.log(err);}
 
 
-    )
+    );
 
 }
 
