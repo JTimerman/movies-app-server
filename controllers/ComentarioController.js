@@ -29,7 +29,7 @@ let getComentarios = (req, res) =>
 let setComentario = (req,res) =>
 {
     let busqueda=({idPelicula:req.body.pelicula.idPelicula});
-   
+   console.log(req.body.pelicula);
     var newComentario = comentario({
         comentario:req.body.comentarios.comentario,
         puntaje:req.body.comentarios.puntaje,
