@@ -7,7 +7,7 @@ var cors = require('cors');
 var app = express();
 
 //conectar BD
-var urlBD = 'mongodb://localhost/movies-app';//cambiar
+var urlBD = process.env.URLBD || 'mongodb://localhost/movies-app';//cambiar
 //opciones conexion
 var opts = {useNewUrlParser : true, connectTimeoutMS:20000};
 //importo driver
