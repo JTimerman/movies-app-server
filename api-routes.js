@@ -38,7 +38,7 @@ router.post('/usuarioExiste/usuarioBuscado',function(req,res)
 //EndPoint para insertar comentario
 router.post('/setUsuario/usuario',function(req,res)
 {
-   
+    console.log("crear usuarios");
     usuarioController.setUsuario(req,res);
 });
 
