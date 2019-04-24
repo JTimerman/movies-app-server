@@ -1,16 +1,22 @@
 var comentario = require('../models/Comentario');
 var bodyParser = require('body-parser');
 var pelicula=('../models/Pelicula');
+
+
+
 let getComentarios = (req, res) =>
 {      
    let pelicula={idPelicula:req.body.idPelicula};
-  
-   console.log(req.body.nombrePelicula);
+
+
+    
+   //console.log(req.body.nombrePelicula);
     comentario.find(pelicula)
     .then
     (
         (listaComentarios)=>
         {
+
             res.send(listaComentarios); //devuelvo resultado query   
             //console.log(listaContactos);    
         },

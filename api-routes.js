@@ -58,7 +58,7 @@ router.post('/setPelicula/pelicula',function(req,res)
 
 
 //--------------------COMENTARIOS---------------------
-router.get('/getComentarios/pelicula',function(req,res)
+router.post('/getComentarios/pelicula',function(req,res)
 {
     console.log("getComentarios");
     comentarioController.getComentarios(req,res);
