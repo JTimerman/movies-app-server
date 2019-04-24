@@ -21,7 +21,7 @@ router.get('/', function (req, res)
 //EndPoint para leer toda la base
 
 //-----------------USUARIOS-----------------------
-
+//testeado
 router.post('/getUsuario/usuario',function(req,res)
 {
     console.log("getUsuario");
@@ -42,7 +42,7 @@ router.post('/setUsuario/usuario',function(req,res)
     usuarioController.setUsuario(req,res);
 });
 
-//EndPoint para leer peliculas comentadas por usuario
+//testeado
 router.post('/updateUsuario/usuario',function(req,res)
 {
     console.log(req.body);
@@ -58,6 +58,7 @@ router.post('/setPelicula/pelicula',function(req,res)
 
 
 //--------------------COMENTARIOS---------------------
+//testeado
 router.post('/getComentarios/pelicula',function(req,res)
 {
     console.log("getComentarios");
@@ -80,6 +81,7 @@ router.post('/setComentario/comentario',function(req,res)
 
 //---------------PELICULAS------------------
 //EndPoint para leer todas las peliculas 
+//testeado
 router.get('/getPeliculas',function(req,res)
 {
     
