@@ -57,7 +57,7 @@ let setComentario = (req,res) =>
                             
                             (comentario)=>{
                                 console.log('guarde el comentario');
-                                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);
+                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
 
                             },(err)=>{console.log(err);}
 
@@ -73,7 +73,7 @@ let setComentario = (req,res) =>
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);  
+                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);  
                 newComentario.save() 
             }
 
