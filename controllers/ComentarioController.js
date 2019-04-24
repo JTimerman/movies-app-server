@@ -73,7 +73,7 @@ let setComentario = (req,res) =>
 
             }
             else{
-
+                console.log('esta peli ya existe!')
                 peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.pelicula.puntaje);  
                 newComentario.save() 
             }
