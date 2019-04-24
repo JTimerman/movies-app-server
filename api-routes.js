@@ -1,9 +1,9 @@
 // Initialize express router
 let router = require('express').Router();
 
-let usuarioController = require('../controllers/UsuariosController');
-let peliculaController = require('../controllers/PeliculaController');
-let comentarioController = require('../controllers/ComentarioController');
+let usuarioController = require('./controllers/UsuariosController');
+let peliculaController = require('./controllers/PeliculaController');
+let comentarioController = require('./controllers/ComentarioController');
 
        
     
