@@ -49,7 +49,8 @@ router.post('/updateUsuario/usuario',function(req,res)
     usuarioController.updateUsuario(req,res);
 });
 
-//EndPoint para insertar pelicula
+//EndPoint para insertar pelicula. 
+//testeado
 router.post('/setPelicula/pelicula',function(req,res)
 {
    
@@ -90,6 +91,7 @@ router.get('/getPeliculas',function(req,res)
 })
 
 //EndPoint para leer todas las peliculas 
+//testeado
 router.get('/getPeliculasByName/pelicula',function(req,res)
 {
    
@@ -98,6 +100,7 @@ router.get('/getPeliculasByName/pelicula',function(req,res)
 })
 
 //EndPoint para leer todas las peliculas 
+//testeado
 router.get('/getPeliculasById/id',function(req,res)
 {
    
