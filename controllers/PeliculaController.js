@@ -19,7 +19,8 @@ let getPeliculas = (req,res) =>
             //console.log(listaContactos);    
         },
         (err)=>{console.log(err);}
-    )       
+    )
+           
 };
 
 let getPeliculaById = (req, res) =>

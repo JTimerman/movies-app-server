@@ -1,6 +1,6 @@
 var comentario = require('../models/Comentario');
 var bodyParser = require('body-parser');
-var peliculaController=require ('../controllers/peliculaController');
+var peliculaController=require ('../controllers/PeliculaController');
     
 let getComentarios = (req, res) =>
 {      
