@@ -33,6 +33,7 @@ let getPeliculaById = (req, res) =>
     .then
     (
         (listaPeliculas)=>
+        
         {   console.log(listaPeliculas);   
             res.send(listaPeliculas); //devuelvo resultado query   
              
