@@ -1,7 +1,7 @@
 var comentario = require('../models/Comentario');
 var bodyParser = require('body-parser');
 var peliculas = require('../models/Pelicula');
-
+var peliculaController=require('../controllers/PeliculaController');
 
 
 let getComentarios = (req, res) =>
@@ -46,14 +46,14 @@ let setComentario = (req,res) =>
          
             if(peliculaEncontrada.length==0){
                 
-                peliculas.setPelicula(req.body.pelicula).then(
+                peliculaController.setPelicula(req.body.pelicula).then(
                     (pelicula)=>{
 
                         newComentario.save().then(
                         
                             (comentario)=>{
 
-                                peliculas.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
+                                peliculaController.updatePeliculaNewComment(req.body.idPelicula,req.body.puntaje);
 
                             },(err)=>{console.log(err);}
 
