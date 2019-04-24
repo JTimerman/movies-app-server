@@ -125,8 +125,8 @@ let setPelicula = (req,res) =>
     });
 
 //verico que no exista la peli
-    let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
-    
+    //let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
+    let busqueda = {idPelicula:req.body.idPelicula};
     peliculas.find(busqueda)
     .then
     (
