@@ -123,7 +123,7 @@ let setPelicula = (req,res) =>
     totalPuntaje:req.body.pelicula.totalPuntaje,
     idPelicula:req.body.pelicula.idPelicula
     });
-
+console.log(newPelicula);
 //verico que no exista la peli
     //let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
     let busqueda = {idPelicula:req.body.idPelicula};
