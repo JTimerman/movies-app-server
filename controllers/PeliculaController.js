@@ -68,7 +68,8 @@ let getPeliculaByName = (req, res) =>
 let updatePeliculaNewComment = (idPelicula,puntaje) => 
 {
 
-    
+    console.log(idPelicula);
+    console.log(puntaje);
     let busqueda = {idPelicula: idPelicula};
 
    
@@ -97,7 +98,7 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
                     (updatePelicula)=>{
 
                     console.log('se actualizo pelicula');
-
+                        console.log(updatePelicula);
 
                     },
                     (err)=>{console.log(err);}
