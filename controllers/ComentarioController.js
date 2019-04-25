@@ -120,8 +120,7 @@ let getComentariosByUser = (req, res) =>
                 const tituloPelicula = await peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre);
 
                 return {
-                    ...comentario,
-                    tituloPelicula
+                    hi: 'hi'
                 }
             });
             
