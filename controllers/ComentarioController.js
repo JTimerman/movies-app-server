@@ -10,7 +10,6 @@ let getComentarios = (req, res) =>
 
 
     
-   //console.log(req.body.nombrePelicula);
     comentario.find(pelicula)
     .then
     (
