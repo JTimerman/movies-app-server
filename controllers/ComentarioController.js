@@ -29,12 +29,12 @@ let getComentarios = (req, res) =>
  let setComentario = (req,res) =>
 {
     let usuarioPorParametro=({nombreUsuario:req.body.comentarios.nombreUsuario});
-    
+    var newComentario;
     let busqueda=({usuarioPorParametro});
     users.find(busqueda)
     .then(
         (usuarioEncontrado)=>{
-         var newComentario = comentario({
+            newComentario = comentario({
             comentario:req.body.comentarios.comentario,
             puntaje:req.body.comentarios.puntaje,
             nombreUsuario:req.body.comentarios.nombreUsuario,
@@ -47,7 +47,7 @@ let getComentarios = (req, res) =>
     
    //console.log(req.body.pelicula);
     
-    console.log(newComentario.email)
+    
     newComentario.save()
     .then
     (
