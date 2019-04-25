@@ -70,12 +70,12 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
 
     console.log("id PELICULA=",idPelicula);
     console.log("PUNTAJE COMENTARIO=",puntaje);
-    let busqueda = ({idPelicula: idPelicula});
+   
 
    
    //console.log(busqueda);
    
-    peliculas.find(busqueda)
+    peliculas.find({idPelicula: idPelicula})
     .then
     (
         (busquedaEncontrada)=>
