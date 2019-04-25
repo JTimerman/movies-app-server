@@ -44,6 +44,7 @@ let getComentarios = (req, res) =>
                 nombreUsuario:req.body.comentario.nombreUsuario,
                 idPelicula: req.body.pelicula.idPelicula,
                 email:email,
+                nombrePelicula:req.body.pelicula.nombre
                 
                 
             });
@@ -109,35 +110,29 @@ let getComentarios = (req, res) =>
 let getComentariosByUser = (req, res) =>
 {      
    let usuario={nombreUsuario:req.body.nombreUsuario};
-   const nuevaLista=0;
+
    //console.log(usuario);
     comentario.find(usuario)
     .then
     (
          (listaComentarios)=>
         {
-
-            
-
-            const titulosDePeliculas =  Promise.all(listaComentarios.map(comentario =>
-                 peliculas.find({idPelicula: comentario.idPelicula},{nombre:1}).
-                 then(
-                     
-                    peliculaEncontrada => peliculaEncontrada.nombre)
-                    
-                    ))
-
-                     const nuevaLista = listaComentarios.map((comentario, index) => {
-                    return {
-                    ...comentario,
-                    tituloPelicula: titulosDePeliculas[index]
-                }
-            });
-            
-            res.send(nuevaLista);
+            res.send(listaComentarios);
         },
+            
+            
+           
+        
         (err)=>{console.log(err);}
-    )       
+    );  
+    
+     
+
+
+
+
+
+
 };
 
 
