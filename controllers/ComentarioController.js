@@ -93,7 +93,7 @@ let getComentarios = (req, res) =>
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje); 
+                peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.comentario.puntaje); 
                 res.send(peliculaEncontrada);
             }
           
