@@ -32,7 +32,7 @@ let getComentarios = (req, res) =>
     let busqueda=({usuarioPorParametro});
     console.log("busqueda:",busqueda);
     var email;
-    users.find(busqueda)
+    users.find({nombreUsuario:req.body.comentarios.nombreUsuario})
     .then(
         (usuarioEncontrado)=>{
          console.log("usuario encontrado", usuarioEncontrado);   
