@@ -43,7 +43,7 @@ let getComentarios = (req, res) =>
                 comentario:req.body.comentario.comentario,
                 puntaje:req.body.comentario.puntaje,
                 nombreUsuario:req.body.comentario.nombreUsuario,
-                idPelicula: req.body.comentario.idPelicula,
+                idPelicula: req.body.pelicula.idPelicula,
                 email:email,
                 
                 
@@ -82,7 +82,8 @@ let getComentarios = (req, res) =>
             if(peliculaEncontrada.length==0){
                 
                 peliculaController.setPelicula(req.body.pelicula,(newPelicula)=>{
-                    peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje); 
+                    peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje);
+                    res.send(peliculaEncontrada); 
                 });
 
                 
@@ -92,6 +93,7 @@ let getComentarios = (req, res) =>
             else{
 
                 peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje); 
+                res.send(peliculaEncontrada);
             }
           
 

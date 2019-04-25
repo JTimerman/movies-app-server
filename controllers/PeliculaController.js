@@ -99,8 +99,9 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
             (
                     (updatePelicula)=>{
 
-                    console.log('se actualizo pelicula');
+                         console.log('se actualizo pelicula');
                         console.log("PELICULA UPDATE",updatePelicula);
+                        
 
                     },
                     (err)=>{console.log(err);}
