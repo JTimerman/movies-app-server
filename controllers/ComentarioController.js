@@ -35,9 +35,10 @@ let getComentarios = (req, res) =>
     users.find({nombreUsuario:req.body.comentarios.nombreUsuario})
     .then(
         (usuarioEncontrado)=>{
-         console.log("usuario encontrado", usuarioEncontrado);   
-         email= usuarioEncontrado.email;
-         console.log("email:", email);         
+            usuarioEncontrado.forEach((element)=>{
+                email=element.email;
+                console.log("nuevo email:",email);
+            })    
         })
 
         
