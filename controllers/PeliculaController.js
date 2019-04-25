@@ -138,6 +138,7 @@ let setPelicula = (pelicula,callback) =>
 //verico que no exista la peli
     //let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
     let busqueda = {idPelicula:pelicula.idPelicula};
+    console.log(busqueda);
     peliculas.find(busqueda)
     .then
     (
