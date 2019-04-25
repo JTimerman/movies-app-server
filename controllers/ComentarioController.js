@@ -114,9 +114,9 @@ let getComentariosByUser = (req, res) =>
     comentario.find(usuario)
     .then
     (
-        (listaComentarios)=>
+        async (listaComentarios)=>
         {
-            const titulosDePeliculas = Promise.all(listaComentarios.map(comentario => peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre)))
+            const titulosDePeliculas = await Promise.all(listaComentarios.map(comentario => peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre)))
 
             const nuevaLista = listaComentarios.map( (comentario, index) => {
                 return {
