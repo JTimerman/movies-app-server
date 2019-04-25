@@ -116,12 +116,12 @@ let getComentariosByUser = (req, res) =>
     (
         (listaComentarios)=>
         {
-            const nuevaLista = listaComentarios.map( comentario => {
-                const tituloPelicula = peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre);
+            const titulosDePeliculas = Promise.all(listaComentarios.map(comentario => peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre)))
 
+            const nuevaLista = listaComentarios.map( (comentario, index) => {
                 return {
                     ...comentario,
-                    tituloPelicula
+                    tituloPelicula: titulosDePeliculas[index]
                 }
             });
             
