@@ -34,7 +34,7 @@ let getComentarios = (req, res) =>
     users.find(busqueda)
     .then(
         (usuarioEncontrado)=>{
-         newComentario = comentario({
+         var newComentario = comentario({
             comentario:req.body.comentarios.comentario,
             puntaje:req.body.comentarios.puntaje,
             nombreUsuario:req.body.comentarios.nombreUsuario,
