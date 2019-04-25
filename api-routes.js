@@ -65,7 +65,7 @@ router.post('/getComentarios/pelicula',function(req,res)
     console.log("getComentarios");
     comentarioController.getComentarios(req,res);
 });
-router.get('/getComentariosByUser/usuario',function(req,res)
+router.post('/getComentariosByUser/usuario',function(req,res)
 {
     console.log("getComentarioByUsuario");
     comentarioController.getComentariosByUser(req,res);
@@ -92,7 +92,7 @@ router.get('/getPeliculas',function(req,res)
 
 //EndPoint para leer todas las peliculas 
 //testeado
-router.get('/getPeliculasByName/pelicula',function(req,res)
+router.post('/getPeliculasByName/pelicula',function(req,res)
 {
    
    // console.log(res.body);
