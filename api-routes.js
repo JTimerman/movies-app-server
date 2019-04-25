@@ -65,7 +65,9 @@ router.post('/getComentarios/pelicula',function(req,res)
     console.log("getComentarios");
     comentarioController.getComentarios(req,res);
 });
+
 router.post('/getComentariosByUser/usuario',function(req,res)
+
 {
     console.log("getComentarioByUsuario");
     comentarioController.getComentariosByUser(req,res);

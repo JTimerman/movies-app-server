@@ -45,7 +45,7 @@ function usuarioExiste (req,res)
 let setUsuario = (req,res) =>
 {
 
-
+   
    //console.log('entre a setusuario')
    //creo nuevo usuario
    var newUsuario = usuario({

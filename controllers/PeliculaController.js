@@ -33,7 +33,7 @@ let getPeliculaById = (req, res) =>
     .then
     (
         (listaPeliculas)=>
-
+        
         {   console.log(listaPeliculas);   
             res.send(listaPeliculas); //devuelvo resultado query   
              
@@ -68,14 +68,13 @@ let getPeliculaByName = (req, res) =>
 let updatePeliculaNewComment = (idPelicula,puntaje) => 
 {
 
-    console.log("id PELICULA=",idPelicula);
-    console.log("PUNTAJE COMENTARIO=",puntaje);
-   
+    
+    let busqueda = {idPelicula: idPelicula};
 
    
    //console.log(busqueda);
    
-    peliculas.find({idPelicula: idPelicula})
+    peliculas.find(busqueda)
     .then
     (
         (busquedaEncontrada)=>
@@ -83,64 +82,53 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
            let totalVotos=0;
            let totalPuntajeCalculado=0;
            let promedioTotal=0;
-           console.log(busquedaEncontrada);
-            busquedaEncontrada.forEach((element)=>{
+         busquedaEncontrada.forEach((element)=>{
             
             totalVotos=parseFloat(element.cantidadVotos)+1;
             totalPuntajeCalculado=parseFloat(element.totalPuntaje)+puntaje;
             promedioTotal=totalPuntajeCalculado/totalVotos;
-            console.log("total votos de la pelicula",totalVotos);
-            console.log("total puntaje calculado",totalPuntajeCalculado);
-            console.log("promedio total",promedioTotal);
-
+            //console.log(totalVotos);
+            //console.log(totalPuntajeCalculado);
+            //console.log(promedioTotal);
             })
+            
             peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
-            .then
-            (
+            .then(
                     (updatePelicula)=>{
 
-                         console.log('se actualizo pelicula');
-                        console.log("PELICULA UPDATE",updatePelicula);
-                        
+                    console.log('se actualizo pelicula');
+
 
                     },
                     (err)=>{console.log(err);}
 
             )
-                  
-                
-
-            
-            
-           
         },
         (err)=>{console.log(err);}
-    ) 
-    
-    
-
-
+    )   
     
 };
 
 
 //busco la pelicula, si no existe la creo, si existe emito un error
-let setPelicula = (pelicula,callback) =>
+let setPelicula = (req,res) =>
 {
-   
+    console.log(req);
+   //console.log("req.body",req.body);
+   //console.log("req.body.pelicula",req.body.pelicula);
+   //console.log('entre a set')
+   //creo nueva pelicula
    var newPelicula = peliculas({
-    nombre:pelicula.nombre,
-    promedio:0,
-    cantidadVotos:0,
-    totalPuntaje:0,
-    idPelicula:pelicula.idPelicula,
-    imagen:""
+    nombre:req.nombre,
+    promedio:req.promedio,
+    cantidadVotos:req.cantidadVotos,
+    totalPuntaje:req.totalPuntaje,
+    idPelicula:req.idPelicula
     });
 //console.log(newPelicula);
 //verico que no exista la peli
     //let busqueda = {nombre: req.body.nombre,promedio:req.body.promedio,cantidadVotos:req.body.cantidadVotos,totalPuntaje:req.body.totalPuntaje,idPelicula:req.body.idPelicula};
-    let busqueda = {idPelicula:pelicula.idPelicula};
-    console.log(busqueda);
+    let busqueda = {idPelicula:req.idPelicula};
     peliculas.find(busqueda)
     .then
     (
@@ -154,13 +142,16 @@ let setPelicula = (pelicula,callback) =>
                     (newPelicula)=>
                     {
                         console.log(newPelicula);
-                        callback(newPelicula);
+                        res.send(true);
                     },
                     (err)=>{console.log(err);
                     }
                 ) 
             }   
-             
+            else{
+
+                res.send(false);
+            }   
         },
         (err)=>{console.log(err)}
     );      
