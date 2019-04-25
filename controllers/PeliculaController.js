@@ -88,9 +88,9 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
             totalVotos=parseFloat(element.cantidadVotos)+1;
             totalPuntajeCalculado=parseFloat(element.totalPuntaje)+puntaje;
             promedioTotal=totalPuntajeCalculado/totalVotos;
-            //console.log(totalVotos);
-            //console.log(totalPuntajeCalculado);
-            //console.log(promedioTotal);
+            console.log(totalVotos);
+            console.log(totalPuntajeCalculado);
+            console.log(promedioTotal);
             })
             
             peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
