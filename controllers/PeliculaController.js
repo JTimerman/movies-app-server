@@ -70,7 +70,7 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
 
     console.log("id PELICULA=",idPelicula);
     console.log("PUNTAJE COMENTARIO=",puntaje);
-    let busqueda = {idPelicula: idPelicula};
+    let busqueda = ({idPelicula: idPelicula});
 
    
    //console.log(busqueda);
@@ -94,7 +94,18 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
             console.log("promedio total",promedioTotal);
 
             })
-           
+            peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
+            .then
+            (
+                    (updatePelicula)=>{
+
+                    console.log('se actualizo pelicula');
+                        console.log("PELICULA UPDATE",updatePelicula);
+
+                    },
+                    (err)=>{console.log(err);}
+
+            )
                   
                 
 
@@ -106,18 +117,7 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
     ) 
     
     
-    peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
-                .then
-                (
-                        (updatePelicula)=>{
-    
-                        console.log('se actualizo pelicula');
-                            console.log("PELICULA UPDATE",updatePelicula);
-    
-                        },
-                        (err)=>{console.log(err);}
-    
-                )
+
 
     
 };
