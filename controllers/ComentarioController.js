@@ -27,7 +27,7 @@ let getComentarios = (req, res) =>
 
  let setComentario = (req,res) =>
 {
-
+    console.log(req.body.pelicula.idPelicula);
     users.find({nombreUsuario:req.body.comentario.nombreUsuario})
     .then(
         (usuarioEncontrado)=>{
