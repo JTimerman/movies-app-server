@@ -29,7 +29,7 @@ let getComentarios = (req, res) =>
 {
 
 
-    let usuario=await usuario.find(usuario);
+    
 
     let busqueda=({idPelicula:req.body.pelicula.idPelicula});
    //console.log(req.body.pelicula);
