@@ -6,7 +6,8 @@ var comentarioSchema = new Schema({
     comentario:String,
     puntaje:Number,
     nombreUsuario:String,
-    idPelicula:String
+    idPelicula:String,
+    email:String
     
 });
 
