@@ -52,9 +52,6 @@ let setComentario = (req,res) =>
 
     )
 
-
-
-
     peliculas.find(busqueda)
     .then
     (
@@ -67,12 +64,6 @@ let setComentario = (req,res) =>
                 
                 
             }
-            else{
-
-               // peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje);  
-                newComentario.save() 
-            }
-
 
         },(err)=>{console.log(err);}
 
