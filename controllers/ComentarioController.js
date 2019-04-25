@@ -38,36 +38,42 @@ let getComentarios = (req, res) =>
             usuarioEncontrado.forEach((element)=>{
                 email=element.email;
                 console.log("nuevo email:",email);
-            })    
+            })
+            
+            var newComentario = comentario({
+                comentario:req.body.comentarios.comentario,
+                    puntaje:req.body.comentarios.puntaje,
+                    nombreUsuario:req.body.comentarios.nombreUsuario,
+                    idPelicula: req.body.comentarios.idPelicula,
+                    email:email,
+            }); 
+        console.log("nuevo comentario:",newComentario);
+        
+       //console.log(req.body.pelicula);
+        
+        
+        newComentario.save()
+        .then
+        (
+            
+            (comentario)=>{
+                console.log('guarde el comentario');
+                
+               // peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje);
+    
+            },(err)=>{console.log(err);}
+    
+    
+        )
+
+
+
+
         })
 
         
         
-        var newComentario = comentario({
-            comentario:req.body.comentarios.comentario,
-                puntaje:req.body.comentarios.puntaje,
-                nombreUsuario:req.body.comentarios.nombreUsuario,
-                idPelicula: req.body.comentarios.idPelicula,
-                email:email,
-        }); 
     
-    
-   //console.log(req.body.pelicula);
-    
-    
-    newComentario.save()
-    .then
-    (
-        
-        (comentario)=>{
-            console.log('guarde el comentario');
-            
-           // peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje);
-
-        },(err)=>{console.log(err);}
-
-
-    )
 
     peliculas.find(busqueda)
     .then
