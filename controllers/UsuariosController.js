@@ -95,8 +95,16 @@ let updateUsuario = (req, res) =>
     (
         (usuarioBuscado)=>
         {
-            
-          console.log(usuarioBuscado);
+            if(usuarioBuscado.length==0){
+
+                res.send(false);
+            }
+            else{
+                console.log(usuarioBuscado);
+                res.send(true);
+
+            }
+          
              
              
         },
