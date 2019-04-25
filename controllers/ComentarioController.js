@@ -29,7 +29,7 @@ let getComentarios = (req, res) =>
  let setComentario = (req,res) =>
 {
     let usuarioPorParametro=({nombreUsuario:req.body.comentarios.nombreUsuario});
-    var newComentario = ({
+    var newComentario = comentario({
         comentario:req.body.comentarios.comentario,
             puntaje:req.body.comentarios.puntaje,
             nombreUsuario:req.body.comentarios.nombreUsuario,
