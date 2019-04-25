@@ -116,8 +116,12 @@ let getComentariosByUser = (req, res) =>
     (
         (listaComentarios)=>
         {
-            res.send(listaComentarios); //devuelvo resultado query   
-            //console.log(listaContactos);    
+            res.send(listaComentarios.map(async comentario => {
+                return {
+                    ...comentario,
+                    tituloPelicula: await peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre)
+                }
+            }));   
         },
         (err)=>{console.log(err);}
     )       
