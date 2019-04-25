@@ -129,10 +129,11 @@ let setPelicula = (pelicula,callback) =>
    
    var newPelicula = peliculas({
     nombre:pelicula.nombre,
-    promedio:pelicula.promedio,
-    cantidadVotos:pelicula.cantidadVotos,
-    totalPuntaje:pelicula.totalPuntaje,
-    idPelicula:pelicula.idPelicula
+    promedio:0,
+    cantidadVotos:0,
+    totalPuntaje:0,
+    idPelicula:pelicula.idPelicula,
+    imagen:""
     });
 //console.log(newPelicula);
 //verico que no exista la peli
