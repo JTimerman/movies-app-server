@@ -26,8 +26,10 @@ let getComentarios = (req, res) =>
 
 
 
-let setComentario = (req,res) =>
+async let setComentario = (req,res) =>
 {
+    let usuarioPorParametro=({nombreUsuario:req.body.comentarios.nombreUsuario});
+    let usuarioEncontrado = await usuario.find(usuarioPorParametro);
     let busqueda=({idPelicula:req.body.pelicula.idPelicula});
    //console.log(req.body.pelicula);
     var newComentario = comentario({
@@ -35,9 +37,10 @@ let setComentario = (req,res) =>
         puntaje:req.body.comentarios.puntaje,
         nombreUsuario:req.body.comentarios.nombreUsuario,
         idPelicula: req.body.comentarios.idPelicula,
+        email:usuarioEncontrado.email,
         
     });
-
+    console.log(newComentario.email)
     newComentario.save()
     .then
     (
