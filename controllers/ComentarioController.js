@@ -28,7 +28,7 @@ let getComentarios = (req, res) =>
  let setComentario = (req,res) =>
 {
 
-    users.find({nombreUsuario:req.body.comentarios.nombreUsuario})
+    users.find({nombreUsuario:req.body.comentario.nombreUsuario})
     .then(
         (usuarioEncontrado)=>{
 
@@ -40,10 +40,10 @@ let getComentarios = (req, res) =>
 
             
             var newComentario = comentario({
-                comentario:req.body.comentarios.comentario,
-                puntaje:req.body.comentarios.puntaje,
-                nombreUsuario:req.body.comentarios.nombreUsuario,
-                idPelicula: req.body.comentarios.idPelicula,
+                comentario:req.body.comentario.comentario,
+                puntaje:req.body.comentario.puntaje,
+                nombreUsuario:req.body.comentario.nombreUsuario,
+                idPelicula: req.body.comentario.idPelicula,
                 email:email,
                 
                 
@@ -82,7 +82,7 @@ let getComentarios = (req, res) =>
             if(peliculaEncontrada.length==0){
                 
                 peliculaController.setPelicula(req.body.pelicula,(newPelicula)=>{
-                    peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje); 
+                    peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje); 
                 });
 
                 
@@ -91,7 +91,7 @@ let getComentarios = (req, res) =>
             }
             else{
 
-                peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje); 
+                peliculaController.updatePeliculaNewComment(req.body.comentario.idPelicula,req.body.comentario.puntaje); 
             }
           
 
