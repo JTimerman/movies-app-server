@@ -124,19 +124,15 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
 
 
 //busco la pelicula, si no existe la creo, si existe emito un error
-let setPelicula = (req,res) =>
+let setPelicula = (pelicula,callback) =>
 {
-    console.log(req);
-   //console.log("req.body",req.body);
-   //console.log("req.body.pelicula",req.body.pelicula);
-   //console.log('entre a set')
-   //creo nueva pelicula
+   
    var newPelicula = peliculas({
-    nombre:req.nombre,
-    promedio:req.promedio,
-    cantidadVotos:req.cantidadVotos,
-    totalPuntaje:req.totalPuntaje,
-    idPelicula:req.idPelicula
+    nombre:pelicula.nombre,
+    promedio:pelicula.promedio,
+    cantidadVotos:pelicula.cantidadVotos,
+    totalPuntaje:pelicula.totalPuntaje,
+    idPelicula:pelicula.idPelicula
     });
 //console.log(newPelicula);
 //verico que no exista la peli
@@ -155,16 +151,13 @@ let setPelicula = (req,res) =>
                     (newPelicula)=>
                     {
                         console.log(newPelicula);
-                        res.send(true);
+                        callback(newPelicula);
                     },
                     (err)=>{console.log(err);
                     }
                 ) 
             }   
-            else{
-
-                res.send(false);
-            }   
+             
         },
         (err)=>{console.log(err)}
     );      

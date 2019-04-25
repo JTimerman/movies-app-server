@@ -64,12 +64,11 @@ let getComentarios = (req, res) =>
          
             if(peliculaEncontrada.length==0){
                 
-                peliculaController.setPelicula(req.body.pelicula,res).then(
+                peliculaController.setPelicula(req.body.pelicula,(newPelicula)=>{
+                    peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje); 
+                });
 
-                    peliculaController.updatePeliculaNewComment(req.body.comentarios.idPelicula,req.body.comentarios.puntaje)
-
-                )
-                 
+                
                 
                 
             }
