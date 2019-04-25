@@ -116,8 +116,8 @@ let getComentariosByUser = (req, res) =>
     (
         (listaComentarios)=>
         {
-            const nuevaLista = listaComentarios.map(async comentario => {
-                const tituloPelicula = await peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre);
+            const nuevaLista = listaComentarios.map( comentario => {
+                const tituloPelicula = peliculas.find({idPelicula: comentario.idPelicula}).then(peliculas => peliculas[0].nombre);
 
                 return {
                     hi: 'hi'
