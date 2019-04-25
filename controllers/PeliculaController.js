@@ -68,8 +68,8 @@ let getPeliculaByName = (req, res) =>
 let updatePeliculaNewComment = (idPelicula,puntaje) => 
 {
 
-    console.log(idPelicula);
-    console.log(puntaje);
+    console.log("id PELICULA=",idPelicula);
+    console.log("PUNTAJE COMENTARIO=",puntaje);
     let busqueda = {idPelicula: idPelicula};
 
    
@@ -88,17 +88,18 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
             totalVotos=parseFloat(element.cantidadVotos)+1;
             totalPuntajeCalculado=parseFloat(element.totalPuntaje)+puntaje;
             promedioTotal=totalPuntajeCalculado/totalVotos;
-            console.log(totalVotos);
-            console.log(totalPuntajeCalculado);
-            console.log(promedioTotal);
+            console.log("total votos de la pelicula",totalVotos);
+            console.log("total puntaje calculado",totalPuntajeCalculado);
+            console.log("promedio total",promedioTotal);
             })
             
             peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
-            .then(
+            .then
+            (
                     (updatePelicula)=>{
 
                     console.log('se actualizo pelicula');
-                        console.log(updatePelicula);
+                        console.log("PELICULA UPDATE",updatePelicula);
 
                     },
                     (err)=>{console.log(err);}
