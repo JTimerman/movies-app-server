@@ -71,9 +71,9 @@ let getComentarios = (req, res) =>
      )
     
 
-    let busqueda=({idPelicula:req.body.pelicula.idPelicula});
    
-    peliculas.find(busqueda)
+   
+    peliculas.find({idPelicula:req.body.pelicula.idPelicula})
     .then
     (
         (peliculaEncontrada)=>
@@ -82,7 +82,7 @@ let getComentarios = (req, res) =>
             if(peliculaEncontrada.length==0){
                 
                 peliculaController.setPelicula(req.body.pelicula,(newPelicula)=>{
-                    console.log(req.body.pelicula.idPelicula);
+            
                     peliculaController.updatePeliculaNewComment(req.body.pelicula.idPelicula,req.body.comentario.puntaje);
                     res.send(peliculaEncontrada); 
                 });
