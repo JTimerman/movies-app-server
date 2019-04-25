@@ -26,10 +26,11 @@ let getComentarios = (req, res) =>
 
 
 
-let setComentario = (req,res) =>
+async let setComentario = (req,res) =>
 {
 
-    
+    let email=await usuario.find(usuario);
+
     let busqueda=({idPelicula:req.body.pelicula.idPelicula});
    //console.log(req.body.pelicula);
     var newComentario = comentario({
@@ -37,6 +38,7 @@ let setComentario = (req,res) =>
         puntaje:req.body.comentarios.puntaje,
         nombreUsuario:req.body.comentarios.nombreUsuario,
         idPelicula: req.body.comentarios.idPelicula,
+        
         
     });
 
@@ -63,6 +65,7 @@ let setComentario = (req,res) =>
             if(peliculaEncontrada.length==0){
                 
                 peliculaController.setPelicula(req.body.pelicula,res)
+                
                 
                 
             }
