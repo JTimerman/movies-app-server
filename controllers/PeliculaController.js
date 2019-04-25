@@ -93,8 +93,7 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
             console.log("total puntaje calculado",totalPuntajeCalculado);
             console.log("promedio total",promedioTotal);
             })
-            .then
-            (
+           
                   
                 peliculas.findOneAndUpdate({idPelicula:idPelicula},{cantidadVotos:totalVotos,totalPuntaje:totalPuntajeCalculado,promedio:promedioTotal})
                 .then
@@ -110,7 +109,7 @@ let updatePeliculaNewComment = (idPelicula,puntaje) =>
                 )
 
 
-            )
+            
             
            
         },
