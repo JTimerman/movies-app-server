@@ -89,7 +89,7 @@ let setUsuario = (req,res) =>
 let updateUsuario = (req, res) =>
 {      
     let busqueda = ({nombreUsuario: req.body.nombreUsuario},{clave:req.body.clave});
-
+    console.log(busqueda);
     usuario.findOneAndUpdate(busqueda)
     .then
     (
@@ -100,8 +100,9 @@ let updateUsuario = (req, res) =>
                 res.send(false);
             }
             else{
-                console.log(usuarioBuscado);
+                console.log("JSON USUARIO BUSCADO",usuarioBuscado);
                 res.send(true);
+                
 
             }
           
