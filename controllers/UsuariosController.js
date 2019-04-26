@@ -88,9 +88,8 @@ let setUsuario = (req,res) =>
 
 let updateUsuario = (req, res) =>
 {      
-    let busqueda = ({nombreUsuario: req.body.nombreUsuario},{clave:req.body.clave});
-    console.log(busqueda);
-    usuario.findOneAndUpdate(busqueda)
+   
+    usuario.findOneAndUpdate({nombreUsuario: req.body.nombreUsuario},{clave:req.body.clave})
     .then
     (
         (usuarioBuscado)=>

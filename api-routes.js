@@ -45,7 +45,7 @@ router.post('/setUsuario/usuario',function(req,res)
 //testeado
 router.post('/updateUsuario/usuario',function(req,res)
 {
-    console.log(req.body);
+    console.log("api routes body",req.body);
     usuarioController.updateUsuario(req,res);
 });
 
